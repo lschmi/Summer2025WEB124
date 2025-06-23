@@ -1,4 +1,4 @@
-//Lydia Schmidt 06/22/25
+//Lydia Schmidt, 06/22/25, source code from YouTube channels WesBos
 /* 
 It was difficult trying to figure out what to target in the css for the if statement.
 I tried style.transition first because that was the css value but that didn’t work.
