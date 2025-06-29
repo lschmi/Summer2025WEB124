@@ -1,0 +1,11 @@
+/* Lydia Schmidt 06/27/25 */
+
+html {
+      background: lightcoral;
+      background-size: cover;
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 20px;
+      color: black;
+      text-shadow: .5px .5px #d3d3d3;
+    }
