@@ -1,4 +1,9 @@
-//Lydia Schmidt 07/21/25, source code from YouTube channel WesBos
+//Lydia Schmidt 07/21/25, source code from YouTube channel WesBos and w3schools.com, with help from Alexa Summers.
+
+/* 
+I had help from you to figure out how to change the color of the countdown clock when it reached 60 seconds(thank you again!),
+and used a tutorial form w3schools.com to create a toggle function for a dark mode button.
+*/
 
 let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
@@ -41,6 +46,12 @@ function displayTimeLeft(seconds) {
   const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
   document.title = display;
   timerDisplay.textContent = display;
+  //js modification - changes color after countdown reaches 60 seconds.
+  if (seconds < 60) {
+    timerDisplay.style.color = 'maroon';
+    }else{
+    timerDisplay.style.color = 'white';
+  }
 }
 
 function displayEndTime(timestamp) {
@@ -66,11 +77,10 @@ document.customForm.addEventListener('submit', function(e){
   this.reset();
 });
 
-
-//js modification - changes color after countdown reaches 60 seconds.
-function colorChange() {
-  if (seconds < 60) {
-  timerDisplay.style.color = 'red';
-  //document.getElementsByClassName('.display__time-left').style.color = '#f08000'
-  }
+//js modification - toggles a dark mode function when button is pressed.
+function darkMode() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
 }
+
+document.getElementById("dark-button").addEventListener("click", darkMode);
