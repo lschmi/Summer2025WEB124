@@ -1,4 +1,4 @@
-/* Lydia Schmidt 07/21/25, css from WesBos.com */
+/* Lydia Schmidt 07/19/25, css from WesBos.com and w3schools.com*/
 
 html {
   box-sizing: border-box;
@@ -81,4 +81,17 @@ body {
 .display__end-time {
   font-size: 4rem;
   color: white;
+}
+
+/* css modification - created styles for web page when toggled to dark mode.*/
+.dark-mode {
+  background-color: #333333;
+  color: white;
+}
+
+#dark-button {
+  background-color: #333333;
+  color: white;
+  border-radius: 1rem;
+  padding: 1rem;
 }
