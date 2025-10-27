@@ -1,0 +1,116 @@
+<!--Lydia Schmidt, 10-23-25, help from youtube channel GreatStack-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather for London</title>
+  <style>
+    
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #222;
+      font-family: Arial, sans-serif;
+    }
+    .box{
+      width: 90%;
+      max-width: 850px;
+      background: linear-gradient(135deg, #00feba, #5b548a);
+      color: #fff;
+      margin: 100px auto 0;
+      border-radius: 20px;
+      padding: 40px 35px;
+      text-align: center;
+    }
+    .button{
+
+    }
+    .weather h1 {
+      font-size: 5rem;
+      font-weight: 500;
+    }
+    .weather h2 {
+      font-size: 2.7rem;
+      font-weight: 400;
+    }
+    .details{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      margin-top: 50px;
+    }
+    .humidity, .wind{
+      font-size: 1.5rem;
+      margin-top: -.5rem;
+      font-weight: bold;
+    }
+    button{
+      margin: 1rem .5rem 3rem .5rem;
+      padding: .6rem;
+      width: 5rem;
+      border: none;
+      border-radius: 1rem;
+      color: rebeccapurple;
+    }
+    button:hover {
+      background: paleturquoise;
+      border: none;
+      border-radius: 1rem;
+      color: purple;
+      cursor: pointer;
+    }
+    button:active {
+      background: turquoise;
+      border: none;
+      border-radius: 1rem;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="box">
+    <button id="refreshButton">Refresh</button>
+    <div class="weather">
+      <h1 class="temp">Loading...</h1>
+      <h2 class="city">London</h2>
+      <div class="details">
+        <div>
+          <p class="humidity">Loading...</p>
+          <p>Humidity</p>
+        </div>
+        <div>
+          <p class="wind">Loading...</p>
+          <p>Wind Speed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    async function londonWeather(){
+      const responce = await fetch('https://api.openweathermap.org/data/2.5/weather?units=imperial&q=london&appid=8445d3af30a435284035cea796aa2223');
+      let data = await responce.json();
+
+      console.log(data);
+
+      document.querySelector(".temp").textContent = Math.round(data.main.temp) + "°F";
+      document.querySelector(".humidity").textContent = data.main.humidity + "%";
+      document.querySelector(".wind").textContent = data.wind.speed + "mph";
+
+    }
+    londonWeather();
+    document.getElementById('refreshButton').addEventListener('click', function() {location.reload();
+    });
+
+  </script>
+</body>
+</html>
